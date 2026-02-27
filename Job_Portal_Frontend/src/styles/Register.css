@@ -1,0 +1,78 @@
+/* REGISTER PAGE STYLING - LOOKS LIKE LOGIN */
+
+/* BACKGROUND & CENTERING */
+.auth-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #0b1f3a, #102c54);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+/* FORM CARD */
+.auth-container form {
+  background: white;
+  padding: 40px;
+  width: 420px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* TITLE */
+.auth-container form h2 {
+  margin-bottom: 25px;
+  font-size: 26px;
+  color: #333;
+}
+
+/* INPUT FIELDS */
+.auth-container form input {
+  width: 100%;
+  padding: 14px;
+  margin: 12px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #eef4ff;
+  font-size: 15px;
+  outline: none;
+}
+
+.auth-container form input:focus {
+  border-color: #0d6efd;
+}
+
+/* BUTTON */
+.auth-container form button {
+  width: 100%;
+  padding: 14px;
+  background: #ff6a00;
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.auth-container form button:hover {
+  background: #e55b00;
+}
+
+/* PARAGRAPH & LINKS */
+.auth-container form p {
+  margin-top: 18px;
+  font-size: 15px;
+}
+
+.auth-container form p a {
+  color: #ff6a00;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.auth-container form p a:hover {
+  text-decoration: underline;
+}

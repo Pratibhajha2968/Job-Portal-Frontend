@@ -1,0 +1,145 @@
+/* General */
+.home {
+  font-family: 'Arial, sans-serif';
+  color: #0a2342;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: 50px;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff6600;
+}
+
+.navbar nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #0a2342;
+  font-weight: 500;
+}
+
+.navbar nav a:hover {
+  color: #ff6600;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to right, #0a2342, #1e3a5f);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.search-bar input {
+  padding: 10px;
+  margin: 0 5px;
+  border-radius: 5px;
+  border: none;
+  width: 200px;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  background-color: #ff6600;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.search-bar button:hover {
+  background-color: #e65c00;
+}
+
+/* Featured Jobs */
+.featured-jobs {
+  padding: 50px;
+  text-align: center;
+}
+
+.featured-jobs h2 {
+  margin-bottom: 30px;
+}
+
+.job-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* How It Works */
+.how-it-works {
+  background-color: #f5f5f5;
+  padding: 50px;
+  text-align: center;
+}
+
+.how-it-works .steps {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.step {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 150px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.step .icon {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #ff6600;
+}
+
+/* Companies Section */
+.companies {
+  padding: 50px;
+  text-align: center;
+}
+
+.company-logos {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.company-logos img {
+  height: 50px;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+.company-logos img:hover {
+  opacity: 1;
+}

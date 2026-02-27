@@ -1,0 +1,102 @@
+/* General Styles */
+/* Dark background + center the card */
+
+/* Full page background */
+.login-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a2342, #000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Login card */
+.login-form {
+    background: #ffffff;
+    padding: 40px 35px;
+    width: 350px;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Heading */
+.login-form h1 {
+    margin-bottom: 20px;
+    color: #0a2342;
+}
+
+/* Inputs */
+.login-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    outline: none;
+}
+
+.login-form input:focus {
+    border-color: #ff6600;
+}
+
+/* Button */
+.login-form button {
+    width: 100%;
+    padding: 12px;
+    background: #ff6600;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.login-form button:hover {
+    background: #e65c00;
+}
+
+/* Error message */
+.error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Forgot Password */
+.forgot-password {
+    text-align: right;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.forgot-password span {
+    color: #ff6600;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.forgot-password span:hover {
+    text-decoration: underline;
+}
+
+/* Bottom text */
+.login-form p {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Register link */
+.Link {
+    color: #ff6600;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.Link:hover {
+    text-decoration: underline;
+}

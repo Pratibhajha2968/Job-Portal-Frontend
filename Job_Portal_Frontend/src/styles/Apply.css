@@ -1,0 +1,7 @@
+.apply-container {
+    max-width: 450px;
+    margin: 80px auto;
+    background: red;
+    /* TEMP DEBUG */
+    padding: 40px;
+}
