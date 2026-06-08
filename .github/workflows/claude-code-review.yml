@@ -1,48 +1,46 @@
-name: Claude Code Review
+name: Claude Auto Review & Fix
 
 on:
   pull_request:
     types: [opened, synchronize]
-    # Optional: Only run on specific file changes
-    # paths:
-    #   - "src/**/*.ts"
-    #   - "src/**/*.tsx"
-    #   - "src/**/*.js"
-    #   - "src/**/*.jsx"
+
+# Cancel an older run if you push again quickly
+concurrency:
+  group: claude-fix-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write        # lets Claude commit & push fixes to the branch
+  pull-requests: write   # lets Claude post review comments
+  issues: write
+  id-token: write
 
 jobs:
-  claude-review:
+  review-and-fix:
+    # Don't re-trigger on Claude's own fix commits (prevents loops)
+    if: github.actor != 'claude[bot]'
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: read
-      issues: read
-      id-token: write
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
 
-      - name: Run Claude Code Review
-        id: claude-review
-        uses: anthropics/claude-code-action@v1
+      - uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: |
-            Please review this pull request and provide feedback on:
-            - Code quality and best practices
-            - Potential bugs or issues
-            - Performance considerations
-            - Security concerns
-            - Test coverage
+            You are reviewing pull request #${{ github.event.pull_request.number }}
+            on branch "${{ github.head_ref }}". Follow the rules in CLAUDE.md.
 
-            Use the repository's CLAUDE.md for guidance on style and conventions.
-            Be constructive and helpful in your feedback.
-
-            Use `gh pr comment` with your Bash tool to leave your review as a comment on the PR.
-
-          # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
-          # for available options
-          claude_args: '--allowed-tools "Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*)"'
+            1. Review the changed files for logic errors, broken routes/links,
+               state-management bugs, security issues, missing error handling,
+               and dead code.
+            2. For clear-cut bugs, FIX them: edit the files, then commit and push
+               to this same branch with messages like "fix: <what> (Claude auto-fix)".
+            3. For risky or design-level issues, do NOT change code — describe
+               them in your summary instead.
+            4. Post ONE PR comment summarizing what you fixed and what still
+               needs human attention.
+          claude_args: |
+            --max-turns 25
